@@ -7,7 +7,8 @@
 //
 
 #import "FOZZAViewController.h"
-
+#import "FOZZATestViewController.h"
+ 
 @interface FOZZAViewController ()
 
 @end
@@ -29,7 +30,8 @@
     // 添加子控制器
     [self setupOneChildViewController:[[UITableViewController alloc] init] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_icon_clicked"];
     [self setupOneChildViewController:[[UITableViewController alloc] init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_icon_clicked"];
-    [self setupOneChildViewController:[[UITableViewController alloc] init] title:@"关注" image:@"tabBar_follow_icon" selectedImage:@"tabBar_follow_icon_clicked"];
+    [self setupOneChildViewController:[[UITableViewController alloc] init] title:nil image:@"" selectedImage:@""];
+    [self setupOneChildViewController:[[UIViewController alloc] init] title:@"关注" image:@"tabBar_follow_icon" selectedImage:@"tabBar_follow_icon_clicked"];
     [self setupOneChildViewController:[[UITableViewController alloc] init] title:@"我的" image:@"tabBar_home_icon" selectedImage:@"tabBar_home_icon_clicked"];
     
     self.tabBar.translucent = NO;
@@ -44,11 +46,43 @@
 /// @param selectedImage 选中的图标
 - (void)setupOneChildViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
-    vc.view.backgroundColor = [UIColor grayColor];
+    vc.view.backgroundColor = FOZZARandomColor;
     vc.tabBarItem.title = title;
-    vc.tabBarItem.image = [UIImage imageNamed:image];
-    vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    if (image.length) {
+        vc.tabBarItem.image = [UIImage imageNamed:image];
+        vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    }
     [self addChildViewController:vc];
+    
+    FOZZALog(@"123456");
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // 增加一个发布按钮
+        UIButton *publishButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        publishButton.backgroundColor = FOZZARandomColor;
+        [publishButton setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
+        [publishButton setImage:[UIImage imageNamed:@"tabBar_publish_icon_clicked"] forState:UIControlStateSelected];
+
+        publishButton.frame = CGRectMake(0, 0, self.tabBar.frame.size.width / 5, self.tabBar.frame.size.height);
+        publishButton.center = CGPointMake(self.tabBar.frame.size.width * 0.5, self.tabBar.frame.size.height * 0.5);
+        [publishButton addTarget:self action:@selector(publishClick) forControlEvents:UIControlEventTouchUpInside];
+
+        [self.tabBar addSubview:publishButton];
+    });
+}
+
+- (void)publishClick
+{
+    FOZZALog(@"?");
+    
+    FOZZATestViewController *testvc = [[FOZZATestViewController alloc] init];
+    [self presentViewController:testvc animated:YES completion:nil];
 }
 
 @end

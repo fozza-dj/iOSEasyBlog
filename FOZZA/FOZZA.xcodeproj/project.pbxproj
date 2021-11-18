@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1492B5272903730068FE82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B56D1472727EC5D007AEE07 /* Assets.xcassets */; };
 		2B56D1082726E279007AEE07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B56D1072726E279007AEE07 /* AppDelegate.m */; };
 		2B56D1192726E27C007AEE07 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B56D1182726E27C007AEE07 /* main.m */; };
 		2B56D1232726E27C007AEE07 /* FOZZATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B56D1222726E27C007AEE07 /* FOZZATests.m */; };
 		2B56D12D2726E27C007AEE07 /* FOZZAUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B56D12C2726E27C007AEE07 /* FOZZAUITests.m */; };
 		2B56D12F2726E27C007AEE07 /* FOZZAUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B56D12E2726E27C007AEE07 /* FOZZAUITestsLaunchTests.m */; };
-		2B56D1482727EC5D007AEE07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B56D1472727EC5D007AEE07 /* Assets.xcassets */; };
 		2B56D14E272803D8007AEE07 /* FOZZAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B56D14D272803D8007AEE07 /* FOZZAViewController.m */; };
+		2B963FF327462D87004DDF76 /* FOZZATestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B963FF227462D87004DDF76 /* FOZZATestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B1492B6272941E90068FE82 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2B56D1032726E279007AEE07 /* FOZZA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOZZA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B56D1062726E279007AEE07 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B56D1072726E279007AEE07 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		2B56D1472727EC5D007AEE07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B56D14C272803D8007AEE07 /* FOZZAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOZZAViewController.h; sourceTree = "<group>"; };
 		2B56D14D272803D8007AEE07 /* FOZZAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOZZAViewController.m; sourceTree = "<group>"; };
+		2B963FF127462D87004DDF76 /* FOZZATestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOZZATestViewController.h; sourceTree = "<group>"; };
+		2B963FF227462D87004DDF76 /* FOZZATestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOZZATestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,9 @@
 				2B56D1182726E27C007AEE07 /* main.m */,
 				2B56D14C272803D8007AEE07 /* FOZZAViewController.h */,
 				2B56D14D272803D8007AEE07 /* FOZZAViewController.m */,
+				2B1492B6272941E90068FE82 /* PrefixHeader.pch */,
+				2B963FF127462D87004DDF76 /* FOZZATestViewController.h */,
+				2B963FF227462D87004DDF76 /* FOZZATestViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -246,7 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B56D1482727EC5D007AEE07 /* Assets.xcassets in Resources */,
+				2B1492B5272903730068FE82 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B56D1082726E279007AEE07 /* AppDelegate.m in Sources */,
+				2B963FF327462D87004DDF76 /* FOZZATestViewController.m in Sources */,
 				2B56D1192726E27C007AEE07 /* main.m in Sources */,
 				2B56D14E272803D8007AEE07 /* FOZZAViewController.m in Sources */,
 			);
@@ -351,6 +359,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = FOZZA/Classes/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -408,6 +417,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = FOZZA/Classes/PrefixHeader.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
